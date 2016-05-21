@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+  echo "Error: The required target wes not specifed."
+  exit 1
+fi
+
+target_name="$1"
+
+if [[ -n $2 ]]; then
+  link_name="$2"
+else
+  link_name=$(basename $1)
+fi
+
+if [[ -L $link_name ]]; then
+  rm -f $link_name
+fi
+
+ln -sr $target_name $link_name
