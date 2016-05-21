@@ -1,0 +1,53 @@
+#!/bin/bash
+
+function fn()
+{
+	echo "Invalid Option"
+	return $?
+}
+
+function fnmount()
+{
+	mkdir -p $2
+	bindfs $1 $2
+	return $?
+}
+
+function fnunmount()
+{
+	fusermount -u $1
+	return $?
+}
+
+function fnunmount-all()
+{
+	for m in $(mount | grep bindfs | cut -f3 -d' ');
+	do
+		fusermount -u "$m";
+	done;
+}
+
+function fnshow()
+{
+	mount | grep bindfs | cut -f3 -d' '
+}
+
+function fnis-active()
+{
+	mounts=`fncount`
+
+	[[ $mounts != "0" ]]
+	return $?;
+}
+
+function fncount()
+{
+	fnshow | wc -l;
+	return $?
+}
+
+action="$1"
+shift
+
+fn$action "$@"
+exit $?
