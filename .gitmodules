@@ -1,0 +1,3 @@
+[submodule "opt/template"]
+	path = opt/template
+	url = git@github.com:infomaniac50/bash-template.git
