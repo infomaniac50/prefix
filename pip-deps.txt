@@ -1,0 +1,8 @@
+pyopenssl
+ndg-httpsclient
+pyasn1
+docker-compose
+httpie
+awscli
+dropbox-index
+platformio

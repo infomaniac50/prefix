@@ -1,0 +1,9 @@
+bash-completion
+carina
+go
+hub
+hugo
+jq
+pyenv
+fasd
+cfssl

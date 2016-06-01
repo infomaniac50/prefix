@@ -1,0 +1,93 @@
+#!/bin/sh
+
+# This is a general-purpose function to ask Yes/No questions in Bash, either
+# with or without a default answer. It keeps repeating the question until it
+# gets a valid answer.
+
+ask() {
+    # http://djm.me/ask
+    while true; do
+
+        if [ "${2:-}" = "Y" ]; then
+            prompt="Y/n"
+            default=Y
+        elif [ "${2:-}" = "N" ]; then
+            prompt="y/N"
+            default=N
+        else
+            prompt="y/n"
+            default=
+        fi
+
+        # Ask the question - use /dev/tty in case stdin is redirected from somewhere else
+        read -p "$1 [$prompt] " REPLY </dev/tty
+
+        # Default?
+        if [ -z "$REPLY" ]; then
+            REPLY=$default
+        fi
+
+        # Check if the reply is valid
+        case "$REPLY" in
+            Y*|y*) return 0 ;;
+            N*|n*) return 1 ;;
+        esac
+
+    done
+}
+
+if ask "Update Node Modules?" Y; then
+  npm -g update
+fi
+
+if ask "Update Atom Packages?" Y; then
+  apm update
+fi
+
+if ask "Update PHPBrew?" Y; then
+  phpbrew self-update
+fi
+
+if ask "Update Composer PHAR?" Y; then
+  composer selfup
+fi
+
+if ask "Update Global Composer Packages?" Y; then
+  composer global update
+fi
+
+if ask "Update ngrok?" Y; then
+  ngrok update
+fi
+
+if ask "Update WP-CLI?" Y; then
+  curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar > ${HOME}/prefix/bin/wp
+fi
+
+
+if ask "Update local user's pip?" Y; then
+  pip install --user --upgrade pip setuptools
+fi
+
+if ask "Update local pip packages?" Y; then
+  pip install --user --upgrade pyopenssl ndg-httpsclient pyasn1 docker-compose httpie awscli dropbox-index platformio
+fi
+
+if ask "Update Homebrew and all formulae from GitHub?" Y; then
+  brew update
+fi
+
+if ask "Update brew packages?" Y; then
+  brew upgrade --cleanup
+fi
+
+if ask "Update Docker images?" Y; then
+  mkfifo /tmp/docker-update
+  docker images | tail -n+2 | tr -s ' ' | cut -f1,2 -d ' ' | tr ' ' ':' | sort -n > /tmp/docker-update &
+  parallel -j4 docker pull < /tmp/docker-update
+  rm -f /tmp/docker-update
+  for image in $(docker images | awk '{ print $1, $3 }' | grep '<none>' | cut -f2 -d ' ');
+  do
+      docker rmi $image;
+  done
+fi
