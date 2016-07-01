@@ -6,3 +6,5 @@ httpie
 awscli
 dropbox-index
 platformio
+youtube_dl
+git-spindle
