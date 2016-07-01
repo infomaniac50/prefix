@@ -49,7 +49,7 @@ if ask "Update PHPBrew?" Y; then
 fi
 
 if ask "Update Composer PHAR?" Y; then
-  composer selfup
+  composer self-update
 fi
 
 if ask "Update Global Composer Packages?" Y; then
