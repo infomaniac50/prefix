@@ -31,10 +31,10 @@ bh_unicode_properties.cache
 GitHub.sublime-settings
 
 # Ignore built files
-lib/
-include/
-share/
-bin/
-opt/
-etc/
-sbin/
+/lib/
+/include/
+/share/
+/bin/
+/opt/
+/etc/
+/sbin/
