@@ -1,0 +1,14 @@
+#!/bin/bash
+
+repo="$1"
+wget --recursive \
+  --timestamping \
+  --level=1 \
+  --no-remove-listing \
+  --span-hosts \
+  --domains=code.google.com,$repo.googlecode.com \
+  --convert-links \
+  --adjust-extension \
+  --page-requisites \
+  --no-parent \
+  https://code.google.com/p/$repo/downloads/list

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ -n "$1" && -r "$1" ]]; then
+  prefix=$(dirname "$1")
+  src_file=$(basename "$1")
+  tar_file="$src_file.tar"
+
+  if [[ -d "$1" ]]; then
+    src_file="$src_file/"
+  fi
+
+  echo tar -cf "$prefix/$tar_file" "$prefix/$src_file"
+  tar -cf "$prefix/$tar_file" "$prefix/$src_file"
+fi

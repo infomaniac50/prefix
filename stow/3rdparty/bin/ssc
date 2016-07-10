@@ -1,0 +1,36 @@
+#!/usr/bin/env perl
+#
+# taken from https://stackoverflow.com/a/1075807/1972627 (Daniel Reeves)
+#   slightly modified by tom hensel <tom@jitter.eu>
+#     https://gist.github.com/gretel/c2ef247f51e3cf0c654e
+#
+# Use 'ssc' (this script) instead of 'ssh' to do your ssh logins.
+# Without a 3rd argument it will list available screens.
+# Given a 3rd argument it will either reattach an existing screen or create a new screen,
+#   i.e. 'ssc host.tld session'.
+#
+# The numbers in front of the screen tag can usually be ignored,
+#   except more than one session has the same symbolic name.
+if(scalar(@ARGV)==0 || scalar(@ARGV) > 2) {
+  print "usage: ssc <host> [screen session name]\n";
+} elsif (scalar(@ARGV) == 1) {
+  $machine = shift;
+  @screens = split("\n", `ssh $machine screen -ls`);
+  for(@screens) {
+    if(/^\s*(\d+)\.(\S+)\s+\(([^\)]*)\)/) {
+      ($num, $tag, $status) = ($1, $2, $3);
+      if($status =~ /attached/i) { $att{"$num.$tag"} = 1; }
+      elsif($status =~ /detached/i) { $att{"$num.$tag"} = 0; }
+      else { print "parsing error on: $_\n"; }
+    }
+  }
+  print "OO attached screens:\n";
+  for(keys(%att)) { print "  $_\n" if $att{$_}; }
+  print "vv detached screens:\n";
+  for(keys(%att)) { print "  $_\n" unless $att{$_}; }
+} else {
+  $machine = shift;
+  $tag = shift;
+  system("ssh -t $machine \"screen -S $tag -dr || screen -S $tag\"");
+}
+#
