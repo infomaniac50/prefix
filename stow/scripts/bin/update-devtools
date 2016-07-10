@@ -36,52 +36,107 @@ ask() {
     done
 }
 
-if ask "Update Node Modules?" Y; then
+update_node_modules()
+{
   npm -g update
+}
+
+if ask "Update Node Modules?" Y; then
+  update_node_modules
 fi
+
+update_atom_packages()
+{
+  apm update --no-confirm
+}
 
 if ask "Update Atom Packages?" Y; then
-  apm update
+  update_atom_packages
 fi
+
+update_phpbrew()
+{
+  phpbrew self-update
+}
 
 if ask "Update PHPBrew?" Y; then
-  phpbrew self-update
+  update_phpbrew
 fi
+
+update_composer_phar()
+{
+  composer self-update
+}
 
 if ask "Update Composer PHAR?" Y; then
-  composer self-update
+  update_composer_phar
 fi
+
+update_global_composer_packages()
+{
+  composer global update
+}
 
 if ask "Update Global Composer Packages?" Y; then
-  composer global update
+  update_global_composer_packages
 fi
+
+update_ngrok()
+{
+  ngrok update
+}
 
 if ask "Update ngrok?" Y; then
-  ngrok update
+  update_ngrok
 fi
+
+update_wp_cli()
+{
+  curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar > ${HOME}/prefix/bin/wp
+}
 
 if ask "Update WP-CLI?" Y; then
-  curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar > ${HOME}/prefix/bin/wp
+  update_wp_cli
 fi
 
+update_local_users_pip()
+{
+  pip install --user --upgrade pip setuptools
+}
 
 if ask "Update local user's pip?" Y; then
-  pip install --user --upgrade pip setuptools
+  update_local_users_pip
 fi
+
+update_local_pip_packages()
+{
+  cat ${HOME}/prefix/pip-deps.txt | xargs pip install --user --upgrade
+}
 
 if ask "Update local pip packages?" Y; then
-  cat ${HOME}/prefix/pip-deps.txt | xargs pip install --user --upgrade
+  update_local_pip_packages
 fi
+
+update_homebrew()
+{
+  brew update
+}
 
 if ask "Update Homebrew and all formulae from GitHub?" Y; then
-  brew update
+  update_homebrew
 fi
+
+update_brew_packages()
+{
+  brew upgrade --cleanup
+}
 
 if ask "Update brew packages?" Y; then
-  brew upgrade --cleanup
+  update_brew_packages
 fi
 
-if ask "Update Docker images?" Y; then
+update_docker_images()
+{
   mkfifo /tmp/docker-update
   docker images | tail -n+2 | tr -s ' ' | cut -f1,2 -d ' ' | tr ' ' ':' | sort -n > /tmp/docker-update &
   parallel -j4 docker pull < /tmp/docker-update
@@ -90,4 +145,9 @@ if ask "Update Docker images?" Y; then
   do
       docker rmi $image;
   done
+  unset image
+}
+
+if ask "Update Docker images?" Y; then
+  update_docker_images
 fi
