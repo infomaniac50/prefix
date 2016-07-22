@@ -135,6 +135,15 @@ if ask "Update brew packages?" Y; then
   update_brew_packages
 fi
 
+update_go_deps()
+{
+  cat ${HOME}/prefix/go-deps.txt | xargs go get -u
+}
+
+if ask "Update Go Dependencies?" Y; then
+  update_go_deps
+fi
+
 update_docker_images()
 {
   mkfifo /tmp/docker-update
