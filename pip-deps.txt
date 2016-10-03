@@ -10,3 +10,4 @@ dropbox-index
 platformio
 youtube_dl
 git-spindle
+platformio

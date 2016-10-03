@@ -4,4 +4,3 @@ go
 jq
 fasd
 cfssl
-platformio
