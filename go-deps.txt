@@ -4,3 +4,6 @@ github.com/ncw/rclone
 github.com/lafikl/telsocket
 github.com/spf13/hugo
 github.com/github/hub
+github.com/cloudflare/cfssl/cmd/cfssl
+github.com/cloudflare/cfssl/cmd/cfssljson
+github.com/cloudflare/cfssl/cmd/mkbundle
