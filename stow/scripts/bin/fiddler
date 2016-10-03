@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cd ~/prefix/opt/fiddler && nohup ~/prefix/opt/fiddler/Fiddler.exe >/dev/null 2>/dev/null &
