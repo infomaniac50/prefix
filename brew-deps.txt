@@ -3,3 +3,4 @@ carina
 go
 jq
 fasd
+git-crypt
