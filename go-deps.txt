@@ -2,3 +2,5 @@ github.com/tsenart/vegeta
 github.com/spf13/cobra
 github.com/ncw/rclone
 github.com/lafikl/telsocket
+github.com/spf13/hugo
+github.com/github/hub

@@ -1,8 +1,6 @@
 bash-completion
 carina
 go
-hub
-hugo
 jq
 fasd
 cfssl
