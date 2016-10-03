@@ -1,3 +1,5 @@
+virtualenv
+virtualenvwrapper
 pyopenssl
 ndg-httpsclient
 pyasn1
