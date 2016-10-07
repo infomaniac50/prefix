@@ -10,9 +10,13 @@ coffeelint
 cordova
 csscomb
 dat
+david
+eslint-auto-config
 generator-big-gulp
+generator-framework7-phonegap
 grunt-cli
 grunt-init
+grunt2gulp
 gulp-cli
 js-beautify
 js2coffee
@@ -21,6 +25,11 @@ jsonlint
 less
 newman
 phonegap
+playup
+pug-cli
+scss-lint
+sqlpad
+tldr
 vue-cli
 wp-timber-cli
 yo
