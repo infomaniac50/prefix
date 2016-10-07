@@ -5,7 +5,6 @@ bitbucket-cli
 bower
 browserify
 coffee-fmt
-coffee-gulp
 coffee-script
 coffeelint
 cordova
