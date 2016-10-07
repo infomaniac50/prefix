@@ -13,9 +13,7 @@ dat
 generator-big-gulp
 grunt-cli
 grunt-init
-gulp
 gulp-cli
-pug
 js-beautify
 js2coffee
 jshint
