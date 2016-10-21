@@ -4,3 +4,4 @@ go
 jq
 fasd
 git-crypt
+fleetctl
