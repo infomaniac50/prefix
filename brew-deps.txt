@@ -5,3 +5,4 @@ jq
 fasd
 git-crypt
 fleetctl
+rclone
