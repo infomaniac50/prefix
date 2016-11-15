@@ -38,3 +38,5 @@ GitHub.sublime-settings
 /opt/
 /etc/
 /sbin/
+
+*-installed.txt
