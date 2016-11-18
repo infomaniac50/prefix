@@ -1,8 +1,12 @@
+assh
 bash-completion
 carina
+cidrmerge
 fasd
 fleetctl
 git-crypt
+git-now
 go
 jq
+minio-mc
 rclone
