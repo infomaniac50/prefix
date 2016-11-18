@@ -1,8 +1,8 @@
 bash-completion
 carina
+fasd
+fleetctl
+git-crypt
 go
 jq
-fasd
-git-crypt
-fleetctl
 rclone
