@@ -11,4 +11,5 @@ git-now
 go
 jq
 minio-mc
+rack
 rclone
