@@ -22,7 +22,7 @@ go-deps-installed.txt: go-deps.txt
 	cat go-deps.txt | xargs go get -u
 	date +"%s" > go-deps-installed.txt
 
-brew-deps-installed.txt: brew-deps.txt $(HOME)/bin/brew
+brew-deps-installed.txt: brew-deps.txt $(HOME)/.linuxbrew/bin/brew
 	cat brew-deps.txt | xargs brew install
 	date +"%s" > brew-deps-installed.txt
 
