@@ -54,6 +54,6 @@ bin/ngrok: bin/ngrok.zip
 bin/ngrok.zip:
 	wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -O bin/ngrok.zip
 
-brew-install: $(HOME)/bin/brew
-$(HOME)/bin/brew:
+brew-install: $(HOME)/.linuxbrew/bin/brew
+$(HOME)/.linuxbrew/bin/brew:
 	curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install | ruby
