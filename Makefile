@@ -34,6 +34,10 @@ pip-deps-installed.txt: pip-deps.txt
 	cat pip-deps.txt | xargs pip install --user --upgrade
 	date +"%s" > pip-deps-installed.txt
 
+pip3-deps-installed.txt: pip3-deps.txt
+	cat pip3-deps.txt | xargs pip3 install --user --upgrade
+	date +"%s" > pip3-deps-installed.txt
+
 install: brew-deps go-deps npm-deps pip-deps bin-deps
 
 bin-deps: brew-install ngrok-install composer-install
