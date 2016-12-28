@@ -99,24 +99,6 @@ if ask "Update WP-CLI?" Y; then
   update_wp_cli
 fi
 
-update_local_users_pip()
-{
-  pip install --user --upgrade pip setuptools
-}
-
-if ask "Update local user's pip?" Y; then
-  update_local_users_pip
-fi
-
-update_local_pip_packages()
-{
-  cat ${HOME}/prefix/pip-deps.txt | xargs pip install --user --upgrade
-}
-
-if ask "Update local pip packages?" Y; then
-  update_local_pip_packages
-fi
-
 update_homebrew()
 {
   brew update
