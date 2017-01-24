@@ -44,6 +44,13 @@ install: brew-deps go-deps npm-deps pip-deps bin-deps
 
 bin-deps: brew-install ngrok-install composer-install
 
+phpbrew-install: opt/phpbrew/bin/phpbrew
+opt/phpbrew/bin/phpbrew:
+	mkdir -p opt/phpbrew/bin/
+	curl -L -O https://github.com/phpbrew/phpbrew/raw/master/phpbrew
+	mv phpbrew opt/phpbrew/bin/phpbrew
+	chmod +x opt/phpbrew/bin/phpbrew
+
 composer-install: opt/composer/bin/composer.phar
 opt/composer/bin/composer: opt/composer/bin/composer.phar
 	ln -sr opt/composer/bin/composer.phar opt/composer/bin/composer
