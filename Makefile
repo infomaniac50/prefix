@@ -24,6 +24,7 @@ go-deps-installed.txt: go-deps.txt
 	date +"%s" > go-deps-installed.txt
 
 brew-deps-installed.txt: brew-deps.txt $(HOME)/.linuxbrew/bin/brew
+	brew update
 	cat brew-deps.txt | xargs brew install
 	date +"%s" > brew-deps-installed.txt
 
