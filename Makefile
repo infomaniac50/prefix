@@ -17,6 +17,7 @@ brew-deps: brew-deps-installed.txt
 npm-deps: npm-deps-installed.txt
 
 pip-deps: pip-deps-installed.txt
+pip3-deps: pip3-deps-installed.txt
 
 go-deps-installed.txt: go-deps.txt
 	cat go-deps.txt | xargs go get -u
