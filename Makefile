@@ -51,7 +51,7 @@ opt/phpbrew/bin/phpbrew:
 	mv phpbrew opt/phpbrew/bin/phpbrew
 	chmod +x opt/phpbrew/bin/phpbrew
 
-composer-install: opt/composer/bin/composer.phar
+composer-install: opt/composer/bin/composer
 opt/composer/bin/composer: opt/composer/bin/composer.phar
 	ln -sr opt/composer/bin/composer.phar opt/composer/bin/composer
 
