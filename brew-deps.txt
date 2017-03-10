@@ -9,4 +9,3 @@ git-now
 go
 jq
 minio-mc
-rclone
