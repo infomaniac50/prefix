@@ -33,7 +33,7 @@ npm-deps-installed.txt: npm-deps.txt
 	date +"%s" > npm-deps-installed.txt
 
 pip-deps-installed.txt: pip-deps.txt
-	cat pip-deps.txt | xargs pip install --user --upgrade
+	cat pip-deps.txt | xargs pip2 install --user --upgrade
 	date +"%s" > pip-deps-installed.txt
 
 pip3-deps-installed.txt: pip3-deps.txt
