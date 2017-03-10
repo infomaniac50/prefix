@@ -1,15 +1,12 @@
 assh
 bash-completion
 bfg
-carina
 cidrmerge
 fasd
-fleetctl
 git-crypt
 git-flow
 git-now
 go
 jq
 minio-mc
-rack
 rclone
