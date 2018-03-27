@@ -5,7 +5,7 @@ bower
 browserify
 coffee-fmt
 coffeelint
-coffee-script
+coffeescript
 cordova
 csscomb
 eslint-auto-config
