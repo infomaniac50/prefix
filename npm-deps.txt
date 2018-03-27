@@ -1,6 +1,5 @@
 babel-cli
 babel-eslint
-babel-preset-es2015
 bitbucket-cli
 bower
 browserify
