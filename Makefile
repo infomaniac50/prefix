@@ -42,7 +42,7 @@ pip3-deps-installed.txt: pip3-deps.txt
 
 install: brew-deps go-deps npm-deps pip-deps bin-deps
 
-bin-deps: brew-install ngrok-install composer-install
+bin-deps: brew-install composer-install
 
 phpbrew-install: opt/phpbrew/bin/phpbrew
 opt/phpbrew/bin/phpbrew:
@@ -61,12 +61,6 @@ opt/composer/bin/composer.phar:
 	php -r "if (hash_file('SHA384', 'composer-setup.php') === '55d6ead61b29c7bdee5cccfb50076874187bd9f21f65d8991d46ec5cc90518f447387fb9f76ebae1fbbacf329e583e30') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 	php composer-setup.php --install-dir=opt/composer/bin
 	php -r "unlink('composer-setup.php');"
-
-ngrok-install: bin/ngrok
-bin/ngrok: bin/ngrok.zip
-	unzip bin/ngrok.zip -d bin/
-bin/ngrok.zip:
-	wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -O bin/ngrok.zip
 
 brew-install: $(HOME)/.linuxbrew/bin/brew
 $(HOME)/.linuxbrew/bin/brew:
