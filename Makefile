@@ -42,7 +42,7 @@ pip3-deps-installed.txt: pip3-deps.txt
 
 install: brew-deps go-deps npm-deps pip-deps bin-deps
 
-bin-deps: brew-install composer-install
+bin-deps: brew-install
 
 phpbrew-install: opt/phpbrew/bin/phpbrew
 opt/phpbrew/bin/phpbrew:
@@ -50,17 +50,6 @@ opt/phpbrew/bin/phpbrew:
 	curl -L -O https://github.com/phpbrew/phpbrew/raw/master/phpbrew
 	mv phpbrew opt/phpbrew/bin/phpbrew
 	chmod +x opt/phpbrew/bin/phpbrew
-
-composer-install: opt/composer/bin/composer
-opt/composer/bin/composer: opt/composer/bin/composer.phar
-	ln -sr opt/composer/bin/composer.phar opt/composer/bin/composer
-
-opt/composer/bin/composer.phar:
-	mkdir -p opt/composer/bin/
-	php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-	php -r "if (hash_file('SHA384', 'composer-setup.php') === '55d6ead61b29c7bdee5cccfb50076874187bd9f21f65d8991d46ec5cc90518f447387fb9f76ebae1fbbacf329e583e30') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-	php composer-setup.php --install-dir=opt/composer/bin
-	php -r "unlink('composer-setup.php');"
 
 brew-install: $(HOME)/.linuxbrew/bin/brew
 $(HOME)/.linuxbrew/bin/brew:
