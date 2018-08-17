@@ -10,7 +10,7 @@ all: install
 clean:
 	git clean -Xdf
 
-go-deps: brew-deps go-deps-installed.txt
+go-deps: go-deps-installed.txt
 
 brew-deps: brew-deps-installed.txt
 
