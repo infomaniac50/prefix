@@ -53,4 +53,4 @@ opt/phpbrew/bin/phpbrew:
 
 brew-install: $(HOME)/.linuxbrew/bin/brew
 $(HOME)/.linuxbrew/bin/brew:
-	curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install | ruby
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
