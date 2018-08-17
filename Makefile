@@ -23,7 +23,7 @@ go-deps-installed.txt: go-deps.txt
 	cat go-deps.txt | xargs go get -u
 	date +"%s" > go-deps-installed.txt
 
-brew-deps-installed.txt: brew-deps.txt $(HOME)/.linuxbrew/bin/brew
+brew-deps-installed.txt: brew-deps.txt /home/linuxbrew/.linuxbrew/bin/brew
 	brew update
 	cat brew-deps.txt | xargs brew install
 	date +"%s" > brew-deps-installed.txt
@@ -51,6 +51,6 @@ opt/phpbrew/bin/phpbrew:
 	mv phpbrew opt/phpbrew/bin/phpbrew
 	chmod +x opt/phpbrew/bin/phpbrew
 
-brew-install: $(HOME)/.linuxbrew/bin/brew
-$(HOME)/.linuxbrew/bin/brew:
+brew-install: /home/linuxbrew/.linuxbrew/bin/brew
+/home/linuxbrew/.linuxbrew/bin/brew:
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
