@@ -51,6 +51,13 @@ opt/phpbrew/bin/phpbrew:
 	mv phpbrew opt/phpbrew/bin/phpbrew
 	chmod +x opt/phpbrew/bin/phpbrew
 
+# https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md
+composer-install: composer-phar composer-link
+composer-phar:
+	cd opt/composer/bin && /bin/bash ../lib/installer.sh
+composer-link: opt/composer/bin/composer.phar
+	ln --symbolic --relative --force opt/composer/bin/composer.phar opt/composer/bin/composer
+
 brew-install: /home/linuxbrew/.linuxbrew/bin/brew
 /home/linuxbrew/.linuxbrew/bin/brew:
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
