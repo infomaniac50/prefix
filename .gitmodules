@@ -1,3 +1,6 @@
 [submodule "opt/template"]
 	path = opt/template
 	url = git@github.com:infomaniac50/bash-template.git
+[submodule "usr/lib/terminator-themes"]
+	path = usr/lib/terminator-themes
+	url = https://github.com/EliverLara/terminator-themes.git
