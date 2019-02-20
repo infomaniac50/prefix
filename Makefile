@@ -59,3 +59,11 @@ composer-link: opt/composer/bin/composer.phar
 brew-install: /home/linuxbrew/.linuxbrew/bin/brew
 /home/linuxbrew/.linuxbrew/bin/brew:
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+
+install: opt/template/Makefile stow/Makefile
+	make -C opt/template/ install
+	make -C stow/ install
+
+uninstall: opt/template/Makefile stow/Makefile
+	make -C opt/template/ uninstall
+	make -C stow/ uninstall
