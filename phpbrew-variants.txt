@@ -1,1 +1,1 @@
-+default +mysql +opcache +sqlite +iconv +intl +sodium
++default +mysql +opcache +sqlite +iconv +intl +sodium +fpm
